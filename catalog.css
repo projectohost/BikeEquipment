@@ -1,26 +1,97 @@
-body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
-.grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 20px; 
+:root {
+    --accent-color: #ffffff;
+    --bg-color: #0f0f0f;
+    --card-bg: rgba(255, 255, 255, 0.05);
 }
-.card { 
-    background: white; 
-    padding: 15px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
     text-align: center;
+    padding: 40px 0;
+    background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-color) 100%);
 }
-.card img { 
-    max-width: 100%; 
-    height: 200px; 
-    object-fit: contain; 
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
+
+header h1 {
+    margin: 0;
+    letter-spacing: 3px;
+    color: var(--accent-color);
 }
-.price { color: #27ae60; font-weight: bold; font-size: 1.2em; }
-button { 
-    background: #3498db; color: white; border: none; 
-    padding: 10px 20px; border-radius: 5px; cursor: pointer; 
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
 }
-button:hover { background: #2980b9; }
+
+/* Картка товару */
+.product-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s transform ease, 0.3s border-color ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.img-container {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.img-container img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 15px 0;
+}
+
+.price span {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.buy-btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+}
