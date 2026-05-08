@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELOSHOP</title>
+
+<style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #eee;
+    line-height: 1.6;
+}
+
+header {
+    background: #000;
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+    letter-spacing: 4px;
+}
+
+header p {
+    color: #aaa;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+nav {
+    background: #1a1a1a;
+    text-align: center;
+    padding: 12px;
+}
+
+nav a {
+    color: #ccc;
+    margin: 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.section {
+    margin: 50px 0;
+}
+
+.section h2 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    flex: 1 1 220px;
+    background: #1a1a1a;
+    padding: 20px;
+    border: 1px solid #333;
+}
+
+.category p {
+    color: #bbb;
+    margin-top: 10px;
+}
+
+.reviews {
+    background: #1a1a1a;
+    padding: 20px;
+}
+
+.review {
+    border-bottom: 1px solid #333;
+    padding: 12px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #444;
+    color: #888;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: 5% auto;
+    padding: 20px;
+    background: #000;
+    border: 1px solid #444;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>VELOSHOP</h1>
+    <p>Інтернет-магазин велозапчастин і аксесуарів</p>
+</header>
+
+<nav>
+    <a href="#">Головна</a>
+    <a href="#">Каталог</a>
+    <a onclick="openModal()">Контакти</a>
+</nav>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Про магазин</h2>
+        <p>
+            VELOSHOP — простий магазин велозапчастин.
+            Тут є все для ремонту, заміни та покращення велосипеда.
+            Структура зроблена так,
+            щоб усе було зрозуміло навіть без досвіду.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Категорії</h2>
+
+        <div class="categories">
+
+            <div class="category">
+
+<div class="categories">
+    <div class="category">
+        <b>Гальма</b>
+        <p>Відповідають за зупинку велосипеда. Важливі для безпеки та контролю швидкості в будь-яких умовах.</p>
+    </div>
+
+    <div class="category">
+        <b>Колеса</b>
+        <p>Забезпечують рух і стабільність. Від них залежить зчеплення з дорогою та комфорт їзди.</p>
+    </div>
+
+    <div class="category">
+        <b>Насоси</b>
+        <p>Потрібні для підтримки правильного тиску в шинах. Впливають на швидкість і безпеку руху.</p>
+    </div>
+
+    <div class="category">
+        <b>Ланцюги 🚲</b>
+        <p>Передають силу від педалей до колеса. Важливі для плавної та ефективної роботи велосипеда.</p>
+    </div>
+
+    <div class="category">
+        <b>Рама</b>
+        <p>Основна конструкція велосипеда. Визначає міцність, вагу та загальну геометрію байка.</p>
+    </div>
+
+    <div class="category">
+        <b>Клей</b>
+        <p>Використовується для ремонту камер та дрібних пошкоджень. Дозволяє швидко відновити герметичність.</p>
+    </div>
+
+    <div class="category">
+        <b>Латка</b>
+        <p>Невеликий ремонтний елемент для камер. Використовується разом із клеєм для усунення проколів.</p>
+    </div>
+
+    <div class="category">
+        <b>Скат</b>
+        <p>Зовнішня покришка колеса. Відповідає за зчеплення, амортизацію та поведінку велосипеда на дорозі.</p>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <div class="section" id="reviews">
+        <h2>Відгуки</h2>
+        <div class="reviews">
+            <div class="review">Іван: Все зрозуміло і просто.</div>
+            <div class="review">Олег: Швидко знайшов потрібні деталі.</div>
+            <div class="review">Марія: Дуже зручний сайт.</div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 VELOSHOP
+</footer>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>Контакти 🤨</h2>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzV_h4QEYhyBmaHBABLWME2dwGEMnmObwhTw&s">
+
+        <p>Контактів поки немає</p>
+        <p>Але є мем 😄</p>
+        <p>Сторінка в розробці</p>
+        <p>Ще трохи тексту...</p>
+        <p>Ще трохи тексту...</p>
+        <p>Ще трохи тексту...</p>
+    </div>
+</div>
+
+<script>
+function openModal() {
+    document.getElementById("modal").style.display = "block";
+}
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
